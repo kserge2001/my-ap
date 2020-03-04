@@ -3,7 +3,9 @@ node{
   git 'https://github.com/kserge2001/my-ap.git'
 }
   stage('Compile-Package'){
-  sh 'mvn package'
+    //Get maven home 
+    def mvnHome = tool name: 'M2_HOME', type: 'maven'
+    sh "${mvnHome}/bin/mvn package"
   }
   
   }
